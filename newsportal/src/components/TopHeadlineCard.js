@@ -12,7 +12,7 @@ const TopHeadlineCard = (props) =>{
     return(
         <div className="card">
             <div className="image">
-                <img className="ui fluid image"src={props.article.urlToImage} alt="IMG missing"></img>
+                <img className="ui fluid image"src={props.article.urlToImage} alt="Article not available in this country!"></img>
             </div>
             <div className="content">
                 <div className="header">{props.article.title}</div>

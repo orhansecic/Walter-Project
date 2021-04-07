@@ -3,25 +3,50 @@ import {connect} from 'react-redux';
 import { topHeadlinesAction } from '../redux/actions';
 import TopHeadlineCard from './TopHeadlineCard.js';
 
+
 class LandingPage extends React.Component{
+    state = {
+        visible: 20,
+    }
     componentDidMount(){
         this.props.topHeadlinesAction();
     }
 
     topHeadlinesMap(){
-        return this.props.topHeadlines.map((article) => {
+        return this.props.topHeadlines.slice(0, this.state.visible).map((article) => {
             return <TopHeadlineCard key={article.url} article={article}/>
+        })
+    }
+    onButtonClick = () =>{
+        this.setState({
+            visible: 100,
         })
     }
 
     render(){
+        if(this.state.visible === 100){
+            return(
+                <div>
+                    <div className="ui four stackable cards">
+                        {this.topHeadlinesMap()}
+                    </div>
+                </div>
+            );
+            
+        }
         return(
             <div>
-                <h1>Landing Page!</h1>
                 <div className="ui four stackable cards">
                     {this.topHeadlinesMap()}
                 </div>
-                {console.log(this.props.topHeadlines)}
+                <div className="ui teal center aligned segment">
+                <div className="ui large teal animated button" onClick={this.onButtonClick}>
+                        <div className="visible content">Load All</div>
+                        <div className="hidden content">
+                        <i className="sync icon"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     };

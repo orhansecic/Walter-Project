@@ -19,9 +19,19 @@ const selectedArticleReducer = (article = null, action) =>{
     }
 }
 
+const searchedArticlesReducer = (searchedArticles = [], action) =>{
+    switch(action.type){
+        case "SEARCHED_ARTICLES":
+            return action.payload;
+        default:
+            return searchedArticles;
+    }
+}
+
 const reducers = combineReducers({
     topHeadlines : topHeadlinesReducer,
     article: selectedArticleReducer,
+    searchedArticles: searchedArticlesReducer,
 })
 
 export default reducers;
