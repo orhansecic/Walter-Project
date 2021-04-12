@@ -15,7 +15,7 @@ const Article = (props) =>{
         }
         return(
             <div>
-                <h1 style={{textAlign: "center"}}>{props.article.title}</h1>
+                <h1 style={{textAlign: "center"}}>{props.articles?.title}</h1>
                 <div className="ui divider"></div>
                 <div className="ui teal segment">
                     <img className="ui centered huge image"src={props.article.urlToImage} alt="Not Found!"/>

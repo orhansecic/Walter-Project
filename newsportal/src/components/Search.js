@@ -72,7 +72,7 @@ class Search extends React.Component{
                             </span>
                         </div>
                     </div>
-                    <div className="ui four stackable cards">
+                    <div className="ui three stackable cards">
                         {this.searchedArticlesMap()}
                     </div>
                 </div>

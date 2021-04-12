@@ -36,7 +36,7 @@ class LandingPage extends React.Component{
         }
         return(
             <div>
-                <div className="ui four stackable cards">
+                <div className="ui three stackable cards">
                     {this.topHeadlinesMap()}
                 </div>
                 <div className="ui teal center aligned segment">
