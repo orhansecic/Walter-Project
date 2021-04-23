@@ -1,0 +1,55 @@
+$mainColor : rgb(0, 180, 180);
+
+.invoice{
+    display: grid;
+    grid-template-columns: 30px 1.75fr repeat(3, 1fr) 20px 1fr 30px;
+    align-items: center;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 15px 15px;
+    margin: 7px 0px;
+
+    &__name{
+        font-size: 20px;
+    }
+
+    &--active{
+        color: rgba(0, 0, 0, 0.500);
+        font-size: 12px;
+    }
+
+    &__pdf{
+        color: $mainColor;
+        justify-self: center;
+        align-self: center;
+    }
+
+    &__dots{
+        color: rgba(0, 0, 0, 0.500);
+        justify-self: center;
+        align-self: center;
+    }
+
+    &__status{
+        
+        &--approved{
+            color: $mainColor;
+        }
+        &--check{
+            color: $mainColor;
+        }
+
+        &--pending{
+            color:rgb(214, 193, 2);
+        }
+        &--clock{
+            color: rgb(214, 193, 2);
+        }
+
+        &--declined{
+            color:rgb(194, 0, 0);
+        }
+        &--x{
+            color: rgb(194, 0, 0);
+        }
+    }
+}

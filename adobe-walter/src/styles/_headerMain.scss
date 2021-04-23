@@ -1,0 +1,36 @@
+.header-main{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 25px auto;
+    width: 95%;
+
+    &__item{
+
+        h3{
+            font-size: 21px;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.500)
+        }
+
+        .item__primButton{
+            color: white;
+            background-color: rgb(112, 112, 112);
+            padding: 12px 65px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .item__input{
+            font-size: 15px;
+            border-radius: 6px;
+            height: 40px;
+            margin-left: 20px;
+            padding: 0 10px;
+        }
+    }
+}
+

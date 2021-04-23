@@ -1,0 +1,44 @@
+.nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    //align-items: center;
+    margin-bottom: 12px;
+    padding: 12px 0px;
+
+    .item{
+        display: flex;
+        align-items: center;
+
+        a{
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.500)
+        }
+
+        &__element{
+            margin: 0 20px;
+
+            &--dropdown{
+                align-self: center;
+                justify-self: center;
+            }
+
+            &--active{
+                color: rgb(0, 180, 180) !important;
+            }
+            
+            img{
+                height: 45px;
+            }
+            
+            &--bell{
+                border-left: solid 1px black;
+                border-right: solid 1px black;
+            }
+            
+        }
+    }
+}
