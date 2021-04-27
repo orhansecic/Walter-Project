@@ -1,12 +1,11 @@
-$mainColor : rgb(0, 180, 180);
-$fadedBlack: rgba(0, 0, 0, 0.500);
+@import './_color';
 
 .content{
     width: 95%;
     margin: 0 auto;
 
     a{
-        color: $fadedBlack;
+        color: $lightBlack;
         cursor: pointer;
         text-decoration: none;
     }
@@ -24,6 +23,7 @@ $fadedBlack: rgba(0, 0, 0, 0.500);
         justify-content: space-between;
         border-bottom: 3px solid rgba(0, 0, 0, 0.2);
         padding: 5px;
+        margin: 15px 0px;
 
         &__item{
             padding: 5px 18px;
@@ -33,7 +33,7 @@ $fadedBlack: rgba(0, 0, 0, 0.500);
             padding-left: 36px;
         }
         &__item--faded{
-            color: $fadedBlack;
+            color: $lightBlack;
         }
     }
 }

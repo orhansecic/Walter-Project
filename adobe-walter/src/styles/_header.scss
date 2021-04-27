@@ -1,3 +1,5 @@
+@import './_color';
+
 .nav {
     display: flex;
     flex-flow: row wrap;
@@ -15,7 +17,7 @@
             text-decoration: none;
             font-size: 18px;
             font-weight: 700;
-            color: rgba(0, 0, 0, 0.500)
+            color: $lightBlack;
         }
 
         &__element{
@@ -27,7 +29,7 @@
             }
 
             &--active{
-                color: rgb(0, 180, 180) !important;
+                color: $mainColor !important;
             }
             
             img{
@@ -37,6 +39,9 @@
             &--bell{
                 border-left: solid 1px black;
                 border-right: solid 1px black;
+                margin: -20px;
+                padding: 20px;
+                margin-right: 20px;
             }
             
         }

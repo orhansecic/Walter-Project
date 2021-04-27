@@ -10,11 +10,11 @@ import Invoices from './All.js';
 import Pending from './Pending.js';
 import HeaderMain from './main/HeaderMain.js';
 import Approved from './Approved.js';
-import Popup from './Popup.js';
 
 import {invoicesActionCreator, approvedActionCreator, pendingActionCreator} from '../actions/index.js';
 
 import '../styles/style.css';
+import Popup from './Popup.js';
 
 class App extends React.Component{
     createMockInstance(){
@@ -71,7 +71,7 @@ class App extends React.Component{
                     <Route path="/" exact component={Invoices}></Route>
                     <Route path="/pending" component={Pending}></Route>
                     <Route path="/approved" component={Approved}></Route>
-                    <Route path="/example" component={Popup}></Route>
+                    <Route path="/popup" component={Popup} />
                 </BrowserRouter>
         );
     }

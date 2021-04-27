@@ -1,0 +1,123 @@
+@import './color';
+
+.overlay{
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+.modal{
+    position: fixed;
+    right: 0;
+    top: 55px;
+    bottom: 55px;
+    z-index: 1000;
+    background-color: white;
+    width: 380px;
+    border-radius: 7px 0px 0px 7px;
+}
+
+.modalContent{
+    display: grid;
+    padding: 15px 25px;
+
+    h3 {
+        margin: 20px 0px;
+        font-size: 21px;
+        color:black;
+
+    }
+
+    hr{
+        color: $lightBlack;
+    }
+
+    &__row{
+        &--details{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 10px 0;
+        }
+
+        &--file{
+            margin: 10px 0px;
+            display: grid;
+            grid-template-columns: 30px 1fr 1fr;
+        }
+        &--buttons{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+    }
+
+    &__comment{
+        margin: 10px 0;
+    }
+}
+
+.details{
+    &--faded{
+        color: $lightBlack;
+        font-size: 12px;
+    }
+    &--cost{
+        color: $mainColor;
+        font-weight: bold;
+    }
+    &--justify{
+        text-align: justify;
+    }
+}
+
+.file{
+    &__item{
+        &--right{
+            justify-self: end;
+            align-self: center;
+        }
+        &--left{
+            align-self: center;
+        }
+    }
+    
+    &--faded{
+        color: $lightBlack;
+    }
+}
+
+.button{
+    margin: 10px 0px;
+
+    &--decline{
+        border: solid 2px rgba(red, 0.7);
+        background-color: white;
+        color: red;
+        padding: 12px 50px;
+        font-size: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    &--approve{
+        border: solid 2px rgba($approveButton, 0.7);
+        background-color: white;
+        color: $approveButton;
+        padding: 12px 50px;
+        font-size: 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+
+.exit{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}

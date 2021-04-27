@@ -1,4 +1,4 @@
-$mainColor : rgb(0, 180, 180);
+@import './_color';
 
 .invoice{
     display: grid;
@@ -7,13 +7,14 @@ $mainColor : rgb(0, 180, 180);
     border: 2px solid rgba(0, 0, 0, 0.2);
     padding: 15px 15px;
     margin: 7px 0px;
+    cursor: pointer;
 
     &__name{
         font-size: 20px;
     }
 
     &--active{
-        color: rgba(0, 0, 0, 0.500);
+        color: $lightBlack;
         font-size: 12px;
     }
 
@@ -24,7 +25,7 @@ $mainColor : rgb(0, 180, 180);
     }
 
     &__dots{
-        color: rgba(0, 0, 0, 0.500);
+        color: $lightBlack;
         justify-self: center;
         align-self: center;
     }
