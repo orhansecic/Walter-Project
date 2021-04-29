@@ -5,20 +5,18 @@ import {BiCheck, BiX} from 'react-icons/bi';
 import {BsThreeDotsVertical} from 'react-icons/bs';
 import {AiOutlineClockCircle} from 'react-icons/ai';
 
-import Popup from '../Popup.js';
+import Popup from '../modals/Popup.js';
 
 const Invoice = (props) =>{
     const [isOpen, setIsOpen] = useState(false);
     
     const onDivClick = () =>{
         setIsOpen(true);
-        console.log("Nesto");
     };
 
     const onCloseClick = (e) =>{
         e.stopPropagation();
         setIsOpen(false);
-        console.log("Radi!")
     }
 
     if(props.invoice?.status === "Approved"){

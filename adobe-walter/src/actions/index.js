@@ -51,3 +51,31 @@ const pendingActionCreator = () =>{
 };
 
 export {pendingActionCreator};
+
+const trueActionCreator = () =>{
+    return {
+        type: "ISOPEN_TRUE",
+        payload: true,
+    };
+};
+
+export {trueActionCreator};
+
+const falseActionCreator = (e) =>{
+    e.stopPropagation();
+    return {
+        type: "ISOPEN_FALSE",
+        payload: false,
+    };
+};
+
+export {falseActionCreator};
+
+const newIncvoiceActionCreator = (newInvoice) =>{
+    return {
+        type: "NEW_INVOICE",
+        payload: newInvoice,
+    };
+};
+
+export {newIncvoiceActionCreator};

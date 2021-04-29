@@ -12,11 +12,11 @@
 .modal{
     position: fixed;
     right: 0;
-    top: 55px;
-    bottom: 55px;
+    top: 50px;
+    bottom: 50px;
     z-index: 1000;
     background-color: white;
-    width: 380px;
+    width: 25%;
     border-radius: 7px 0px 0px 7px;
 }
 
@@ -35,6 +35,12 @@
         color: $lightBlack;
     }
 
+    &__information{
+        color: $lightBlack;
+        margin: 10px 0px;
+        font-size: 14px;
+    }
+
     &__row{
         &--details{
             display: grid;
@@ -51,6 +57,72 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
+        }
+        &--date{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+
+            span{
+                color: $lightBlack;
+                font-weight: bold;
+            }
+
+            input{
+                border: 1px solid $lightBlack;
+                border-radius: 5px;
+                height: 40px;
+                padding: 0 0 0 10px;
+            }
+        }
+
+        &--comment{
+            span{
+                color: $lightBlack;
+                font-weight: bold;    
+            }
+
+            input{
+                padding: 5px 0 80px 5px;
+                width: 100%;
+                border-radius: 5px;
+                border: 1px solid $lightBlack;
+                margin: 10px 0 0 0;
+            }
+        }
+
+        &--price{
+            margin: 10px 0;
+
+            span{
+                color: $lightBlack;
+                font-weight: bold;
+            }
+
+            input{
+                width: 100%;
+                border-radius: 5px;
+                border: 1px solid $lightBlack;
+                height: 40px;
+                padding-left: 5px;
+                margin: 10px 0 0 0;
+            }
+        }
+
+        &--upload{
+            margin: 10px 0;
+            span{
+                color: $lightBlack;
+                font-weight: bold;
+            }
+            input{
+                width: 100%;
+                border-radius: 5px;
+                border: 1px dotted $lightBlack;
+                margin-top: 10px;
+                padding: 0 0 82px 0;
+            }
         }
     }
 
@@ -112,6 +184,15 @@
         border-radius: 6px;
         cursor: pointer;
         text-align: center;
+    }
+
+    &--invoice{
+        height: 40px;
+        background-color: $lightBlack;
+        color: white;
+        border-radius: 6px;
+        width: 50%;
+        float: right;
     }
 }
 

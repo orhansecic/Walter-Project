@@ -1,7 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
 import {connect} from 'react-redux';
 import {pendingActionCreator} from '../actions';
 import Invoice from './main/Invoice';
@@ -10,16 +8,6 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 class Pending extends React.Component{
     componentDidMount(){
-        const mock = new MockAdapter(axios, {delayResponse: 4000});
-        mock.onGet("/pending").reply(200,{
-            invoices:[
-                {id: 6, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200 KM", status: "Pending"},
-                {id: 7, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200 KM", status: "Pending"},
-                {id: 8, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200 KM", status: "Pending"},
-                {id: 9, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200 KM", status: "Pending"},
-                {id: 10, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200 KM", status: "Pending"},
-            ]
-        })
         this.props.pendingActionCreator();
     }
 

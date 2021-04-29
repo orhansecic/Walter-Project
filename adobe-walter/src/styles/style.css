@@ -98,6 +98,7 @@
   height: 40px;
   margin-left: 20px;
   padding: 0 10px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .invoice {
@@ -221,11 +222,11 @@
 .modal {
   position: fixed;
   right: 0;
-  top: 55px;
-  bottom: 55px;
+  top: 50px;
+  bottom: 50px;
   z-index: 1000;
   background-color: white;
-  width: 380px;
+  width: 25%;
   border-radius: 7px 0px 0px 7px;
 }
 
@@ -243,6 +244,12 @@
 
 .modalContent hr {
   color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent__information {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 10px 0px;
+  font-size: 14px;
 }
 
 .modalContent__row--details {
@@ -267,6 +274,75 @@
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
   gap: 14px;
+}
+
+.modalContent__row--date {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.modalContent__row--date span {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.modalContent__row--date input {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 0 0 10px;
+}
+
+.modalContent__row--comment span {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.modalContent__row--comment input {
+  padding: 5px 0 80px 5px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 10px 0 0 0;
+}
+
+.modalContent__row--price {
+  margin: 10px 0;
+}
+
+.modalContent__row--price span {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.modalContent__row--price input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  height: 40px;
+  padding-left: 5px;
+  margin: 10px 0 0 0;
+}
+
+.modalContent__row--upload {
+  margin: 10px 0;
+}
+
+.modalContent__row--upload span {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.modalContent__row--upload input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px dotted rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  padding: 0 0 82px 0;
 }
 
 .modalContent__comment {
@@ -329,6 +405,15 @@
   border-radius: 6px;
   cursor: pointer;
   text-align: center;
+}
+
+.button--invoice {
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 6px;
+  width: 50%;
+  float: right;
 }
 
 .exit {

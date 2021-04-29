@@ -5,7 +5,8 @@ import {FaRegFilePdf} from 'react-icons/fa';
 import {BiX} from 'react-icons/bi';
 
 const Popup = (props) =>{
-    console.log(props.invoice);
+    const poruka = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit."
+    
     if(props.isOpen === false){
         return(
             null
@@ -50,7 +51,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor feugiat lacus sodales placerat. Morbi blandit imperdiet eros non pretium. Cras quis quam lectus.</p>
+                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
@@ -89,7 +90,8 @@ const Popup = (props) =>{
                     <div className="overlay"/>
                     <div className="modal">
                         <div className="modalContent">
-                            <BiX size="20" className="exit" onClick={props.onClose}>X</BiX>                            {/* TITLE */}
+                            <span className="exit" onClick={props.onClose}>X</span>
+                            {/* TITLE */}
                             <h3>{props.invoice?.invoiceName}</h3>
                             <hr></hr>
                             {/* TITLE */}
@@ -120,7 +122,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor feugiat lacus sodales placerat. Morbi blandit imperdiet eros non pretium. Cras quis quam lectus.</p>
+                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
@@ -156,7 +158,8 @@ const Popup = (props) =>{
                     <div className="modal">
                         
                         <div className="modalContent">
-                            <BiX size="20" className="exit" onClick={props.onClose}>X</BiX>                            {/* TITLE */}
+                            <span className="exit" onClick={props.onClose}>X</span>
+                            {/* TITLE */}
                             <h3>{props.invoice?.invoiceName}</h3>
                             <hr></hr>
                             {/* TITLE */}
@@ -187,7 +190,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempor feugiat lacus sodales placerat. Morbi blandit imperdiet eros non pretium. Cras quis quam lectus.</p>
+                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
