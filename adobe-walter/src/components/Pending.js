@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {pendingActionCreator} from '../actions';
+import {pendingActionCreator, sortInvoices} from '../actions';
 import Invoice from './main/Invoice';
-import { RiArrowDropDownLine } from 'react-icons/ri';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 class Pending extends React.Component{
@@ -17,38 +16,99 @@ class Pending extends React.Component{
         })
     }
 
-    render(){
-        return(
-            <div>
-                <div className="content">
-                    <div className="sort">
-                        <div>
-                            <Link to="/" className="sort__item sort__item">All</Link>
-                            <Link to="/pending" className=" sort__item content--underline content--active">Pending</Link>
-                            <Link to="/approved" className="sort__item">Approved</Link>
+    sortByCostASC = () =>{
+        const sortedInvoices = this.props.pendingInvoices.sort((a, b) => a.cost - b.cost);
+        this.props.sortInvoices(sortedInvoices);
+     }
+ 
+     sortByCostDES = () =>{
+         const sortedInvoices = this.props.pendingInvoices.sort((a, b) => b.cost - a.cost);
+         this.props.sortInvoices(sortedInvoices);
+      }
+ 
+ 
+     sortByDate = () =>{
+         const sortedInvoices = this.props.pendingInvoices.sort((a,b) => a.date < b.date);
+         this.props.sortInvoices(sortedInvoices);
+     }
+
+
+     render(){
+        if(this.props.pending === false){
+            return(
+                <div>
+                    <div className="content">
+                        <div className="sort">
+                            <div>
+                                <Link to="/" className="sort__item">All</Link>
+                                <Link to="/pending" className=" sort__item content--underline content--active">Pending</Link>
+                                <Link to="/approved" className="sort__item">Approved</Link>
+                            </div>
+                            <div>
+                            <div className="sort__item__dropdown">
+                                    <span className="sort__item--right dropbtn"><span className="sort__item--faded">Sort By: </span>Date</span>
+                                    <div className="dropdown-content">
+                                        <span onClick={this.sortByDate}>Ascending</span>
+                                        <span>Descending</span>
+                                    </div>
+                                </div>
+                                <div className="sort__item__dropdown">
+                                    <span className="sort__item--right dropbtn"><span className="sort__item--faded">Sort By: </span>Cost</span>
+                                    <div className="dropdown-content">
+                                        <span onClick={this.sortByCostASC}>Ascending</span>
+                                        <span onClick={this.sortByCostDES}>Descending</span>
+                                    </div>
+                                </div>
+                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mapPendingInvoices().length}</span>
+                                <AiOutlineLeft />
+                                <AiOutlineRight/>
+                            </div>
+                            
                         </div>
-                        <div>
-                            <span className="sort__item--right"><span className="sort__item--faded">Filter period: </span>Dec 19 - Feb 20 <RiArrowDropDownLine/></span>
-                            <span className="sort__item--right"><span className="sort__item--faded">Sort by: </span>Last added <RiArrowDropDownLine/></span>
-                            <span className="sort__item--right"><span className="sort__item--faded">Showing </span>{this.mapPendingInvoices().length} <RiArrowDropDownLine/></span>
-                            <AiOutlineLeft />
-                            <AiOutlineRight/>
-                        </div>
-                        
+                        {this.mapPendingInvoices()}
                     </div>
-                    {this.mapPendingInvoices()}
                 </div>
-            </div>
-        ); 
-    }
+            ); 
+        } else if(this.props.pending === true){
+            return(
+                <div>
+                    <div className="content">
+                        <div className="sort">
+                            <div>
+                                <Link to="/" className="sort__item">All</Link>
+                                <Link to="/pending" className=" sort__item sort__item content--underline content--active">Pending</Link>
+                                <Link to="/approved" className="sort__item">Approved</Link>
+                            </div>
+                            <div>
+                                <span className="sort__item--right"><span className="sort__item--faded">Sort By: </span>Date</span>
+                                <span className="sort__item--right"><span className="sort__item--faded" >Sort by: </span>Cost</span>
+                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mapPendingInvoices().length}</span>
+                                <AiOutlineLeft />
+                                <AiOutlineRight/>
+                            </div>
+                            
+                        </div>
+                        <div style={{textAlign: "center"}}>
+                            <h1>The Content is Loading...</h1>
+                        </div>
+                    </div>
+                </div>
+            );
+        }  
+    };
 }
 
 const mapStateToProps = (state) =>{
     return{
         pendingInvoices: state.invoices,
+        pending: state.pending,
     }
 }
 
-export default connect (mapStateToProps,{
-    pendingActionCreator: pendingActionCreator,
-}) (Pending); 
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        pendingActionCreator: () => {dispatch(pendingActionCreator())},
+        sortInvoices: (sortedInvoices) => {dispatch(sortInvoices(sortedInvoices))}
+    }
+}
+export default connect (mapStateToProps, mapDispatchToProps) (Pending); 

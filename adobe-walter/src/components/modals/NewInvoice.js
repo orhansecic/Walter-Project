@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 
 import {newIncvoiceActionCreator} from '../../actions';
@@ -17,7 +18,7 @@ class NewInvoice extends React.Component{
             invoiceName: "New Invoice.pdf",
             date: this.inputDate.current.value,
             issuedBy: "Orhan Šečić",
-            cost: `${this.inputPrice.current.value} KM`,
+            cost: this.inputPrice.current.value,
             status: "Pending",
             dueDate: this.inputDueDate.current.value,
             comment: this.inputComment.current.value,
@@ -31,9 +32,9 @@ class NewInvoice extends React.Component{
                 null
             );
         }else if(this.props.isOpen === true){
-            return(
+            return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay"></div>
+                    <div className="overlay" onClick={this.props.closeModal}></div>
                     <div className="modal">
                         <div className="modalContent">
                             <span className="exit" onClick={this.props.closeModal}>X</span>
@@ -69,7 +70,8 @@ class NewInvoice extends React.Component{
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.querySelector("#modal")
             );
         }
     };

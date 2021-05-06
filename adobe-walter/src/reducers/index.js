@@ -14,6 +14,9 @@ const invoiceReducer = (invoices = [], action) =>{
         
         case "NEW_INVOICE":
             return [...invoices, action.payload];
+        
+        case "SORT_INVOICES":
+            return [...action.payload];
 
         default: 
             return invoices;
@@ -31,9 +34,19 @@ const isOpenReducer = (isOpen = false, action) =>{
     }
 }
 
+const isPending = (state = false, action) =>{
+    switch(action.type){
+        case "SET_PENDING":
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
 const reducers = combineReducers({
     invoices: invoiceReducer,
     isOpen: isOpenReducer,
+    pending: isPending,
 });
 
 export default reducers;

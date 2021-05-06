@@ -5,8 +5,9 @@ import {FaRegFilePdf} from 'react-icons/fa';
 import {BiX} from 'react-icons/bi';
 
 const Popup = (props) =>{
-    const poruka = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit."
-    
+    const defaultMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit."
+    const date = new Date();
+
     if(props.isOpen === false){
         return(
             null
@@ -15,7 +16,7 @@ const Popup = (props) =>{
         if(props.invoice.status === "Pending")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay"/>
+                    <div className="overlay" onClick={props.onClose}/>
                     <div className="modal">
                         
                         <div className="modalContent">
@@ -51,7 +52,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
+                                <p className="details--justify">{!props.invoice?.comment ? defaultMessage : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
@@ -87,7 +88,7 @@ const Popup = (props) =>{
             if(props.invoice.status === "Approved")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay"/>
+                    <div className="overlay" onClick={props.onClose}/>
                     <div className="modal">
                         <div className="modalContent">
                             <span className="exit" onClick={props.onClose}>X</span>
@@ -122,7 +123,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
+                                <p className="details--justify">{!props.invoice?.comment ? defaultMessage : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
@@ -142,7 +143,8 @@ const Popup = (props) =>{
                             {/* FILE NAME AND SIZE */}
 
                             {/* BUTTONS */}
-                                <span className=" button button--approve">Invoice Approved</span>
+                                <span className="button button--approve">Invoice Approved</span>
+                                <span className="modalContent__date">{`Approved at ${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}</span>
                             {/* BUTTONS */}
                         </div>
                     </div>
@@ -154,7 +156,7 @@ const Popup = (props) =>{
             if(props.invoice.status === "Declined")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay"/>
+                    <div className="overlay" onClick={props.onClose}/>
                     <div className="modal">
                         
                         <div className="modalContent">
@@ -190,7 +192,7 @@ const Popup = (props) =>{
                             <div className="modalContent__comment">
                                 <span className="details--faded">Notes/Comment</span>
                                 <br/>
-                                <p className="details--justify">{!props.invoice?.comment ? poruka : props.invoice?.comment}</p>
+                                <p className="details--justify">{!props.invoice?.comment ? defaultMessage : props.invoice?.comment}</p>
                             </div>
                             {/* CONTENT SECTION */}
 
@@ -211,6 +213,7 @@ const Popup = (props) =>{
 
                             {/* BUTTONS */}
                                 <span className=" button button--decline">Invoice Declined</span>
+                                <span className="modalContent__date">{`Declined at ${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}</span>
                             {/* BUTTONS */}
                         </div>
                     </div>
