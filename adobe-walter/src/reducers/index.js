@@ -1,3 +1,4 @@
+import produce from 'immer';
 // Reducers
 import { combineReducers } from 'redux';
 
@@ -12,11 +13,13 @@ const invoiceReducer = (invoices = [], action) =>{
         case "PENDING_INVOICES":
             return action.payload;
         
-        case "NEW_INVOICE":
-            return [...invoices, action.payload];
-        
+         case "NEW_INVOICE":
+            return produce(invoices, (draftState) => {
+                draftState.push(action.payload);
+            })
+            //return [...invoices, action.payload];
         case "SORT_INVOICES":
-            return [...action.payload];
+            return action.payload;
 
         default: 
             return invoices;

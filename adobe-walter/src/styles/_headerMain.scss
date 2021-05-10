@@ -10,7 +10,9 @@
     width: 95%;
 
     &__item{
-
+        display: flex;
+        flex-wrap: wrap;
+        
         h3{
             font-size: 21px;
             font-weight: 700;

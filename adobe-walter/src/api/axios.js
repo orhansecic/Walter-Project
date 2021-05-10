@@ -4,6 +4,11 @@ import MockAdapter from 'axios-mock-adapter';
 
 const mockInvoices = new MockAdapter(Axios, {delayResponse: 500});
 
+/*
+mockInvoices.onGet("/invoices").reply(200, {
+    
+})
+*/
 mockInvoices.onGet("/invoices").reply(200, {
     invoices: [
         {id: 1, invoiceName: "Invoice name.pdf", date: "04/06/2020", issuedBy: "John Doe", cost: "200", dueDate: "20/06/2021", status: "Approved"},

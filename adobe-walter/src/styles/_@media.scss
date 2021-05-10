@@ -1,0 +1,105 @@
+@import './_color';
+
+@media all  and (max-width: 426px){
+    .invoice{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+        
+        &__pdf{
+            display: none;
+        }
+
+        &__name{
+            grid-column-start: 1;
+            grid-column-end: 7;
+            border-bottom-style: solid;
+            border-color: $lightBlack;
+        }
+        &__issueDate{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        &__issueBy{
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+        &__cost{
+            grid-column-start: 5;
+            grid-column-end: 7;
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
+
+        &__status{
+            &--check{
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            &--clock{
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            &--x{
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            &--approved{
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            &--pending{
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            &--declined{
+                grid-column-start: 3;
+                grid-column-end: 5;
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+        }
+        &__dots{
+            grid-column-start: 5;
+            grid-column-end: 6;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+    }
+
+    .header-main__item{
+        display: block;
+
+        .item__input{
+            margin: 10px auto;
+            padding: 0 28px;
+        }
+
+        .item__primButton{
+            margin: 10px 0;
+        }
+    }
+
+    .sort{
+        display: none !important;
+        // grid-template-rows: repeat(2, 50px);
+        // grid-template-columns: repeat(3, 1fr);
+    }
+    .nav{
+        display:none;
+    }
+}

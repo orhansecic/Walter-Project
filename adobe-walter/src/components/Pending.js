@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {pendingActionCreator, sortInvoices} from '../actions';
 import Invoice from './main/Invoice';
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 class Pending extends React.Component{
     componentDidMount(){
@@ -27,10 +26,17 @@ class Pending extends React.Component{
       }
  
  
-     sortByDate = () =>{
-         const sortedInvoices = this.props.pendingInvoices.sort((a,b) => a.date < b.date);
-         this.props.sortInvoices(sortedInvoices);
-     }
+      sortByDateASC = () =>{
+        console.log("clicked");
+        const sortedInvoices = this.props.pendingInvoices.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
+        this.props.sortInvoices(sortedInvoices);
+    }
+
+    sortByDateDES = () =>{
+        console.log("clicked");
+        const sortedInvoices = this.props.pendingInvoices.sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
+        this.props.sortInvoices(sortedInvoices);
+    }
 
 
      render(){
@@ -48,8 +54,8 @@ class Pending extends React.Component{
                             <div className="sort__item__dropdown">
                                     <span className="sort__item--right dropbtn"><span className="sort__item--faded">Sort By: </span>Date</span>
                                     <div className="dropdown-content">
-                                        <span onClick={this.sortByDate}>Ascending</span>
-                                        <span>Descending</span>
+                                        <span onClick={this.sortByDateASC}>Ascending</span>
+                                        <span onClick={this.sortByDateDES}>Descending</span>
                                     </div>
                                 </div>
                                 <div className="sort__item__dropdown">
@@ -60,8 +66,6 @@ class Pending extends React.Component{
                                     </div>
                                 </div>
                                 <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mapPendingInvoices().length}</span>
-                                <AiOutlineLeft />
-                                <AiOutlineRight/>
                             </div>
                             
                         </div>
@@ -81,10 +85,8 @@ class Pending extends React.Component{
                             </div>
                             <div>
                                 <span className="sort__item--right"><span className="sort__item--faded">Sort By: </span>Date</span>
-                                <span className="sort__item--right"><span className="sort__item--faded" >Sort by: </span>Cost</span>
+                                <span className="sort__item--right"><span className="sort__item--faded" >Sort By: </span>Cost</span>
                                 <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mapPendingInvoices().length}</span>
-                                <AiOutlineLeft />
-                                <AiOutlineRight/>
                             </div>
                             
                         </div>

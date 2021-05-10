@@ -24,17 +24,17 @@ const Invoice = (props) =>{
             <div className="invoice" onClick={onDivClick}>
                 <FaRegFilePdf size="25" className="invoice__pdf"/>
                 <span className="invoice__name">{props.invoice?.invoiceName}</span>
-                <span>
+                <span className="invoice__issueDate">
                     <span className="invoice--active">Issue date</span>
                     <br/>
                     <span>{props.invoice?.date}</span>
                  </span>
-                 <span>
+                 <span className="invoice__issueBy">
                     <span className="invoice--active">Issue by</span>
                     <br/>
                     <span>{props.invoice?.issuedBy}</span>
                  </span>
-                 <span>
+                 <span className="invoice__cost">
                     <span className="invoice--active">Cost</span>
                     <br/>
                     <span>{props.invoice?.cost}</span>
@@ -51,17 +51,17 @@ const Invoice = (props) =>{
             <div className="invoice" onClick={onDivClick}>
                 <FaRegFilePdf size="25" className="invoice__pdf"/>
                 <span className="invoice__name">{props.invoice?.invoiceName}</span>
-                <span>
+                <span className="invoice__issueDate">
                     <span className="invoice--active">Issue date</span>
                     <br/>
                     <span>{props.invoice?.date}</span>
                  </span>
-                 <span>
+                 <span className="invoice__issueBy">
                     <span className="invoice--active">Issue by</span>
                     <br/>
                     <span>{props.invoice?.issuedBy}</span>
                  </span>
-                 <span>
+                 <span className="invoice__cost">
                     <span className="invoice--active">Cost</span>
                     <br/>
                     <span>{props.invoice?.cost}</span>
@@ -78,17 +78,17 @@ const Invoice = (props) =>{
             <div className="invoice" onClick={onDivClick}>
                 <FaRegFilePdf size="25" className="invoice__pdf"/>
                 <span className="invoice__name">{props.invoice?.invoiceName}</span>
-                <span>
+                <span className="invoice__issueDate">
                     <span className="invoice--active">Issue date</span>
                     <br/>
                     <span>{props.invoice?.date}</span>
                  </span>
-                 <span>
+                 <span className="invoice__issueBy">
                     <span className="invoice--active">Issue by</span>
                     <br/>
                     <span>{props.invoice?.issuedBy}</span>
                  </span>
-                 <span>
+                 <span className="invoice__cost">
                     <span className="invoice--active">Cost</span>
                     <br/>
                     <span>{props.invoice?.cost}</span>

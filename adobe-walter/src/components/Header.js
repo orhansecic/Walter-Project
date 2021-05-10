@@ -10,7 +10,8 @@ import logo from '../images/logo.png';
 
 const Header = () =>{
     return(
-        <div className="nav">
+        <div>
+            <div className="nav">
             <div className="item item--left">
                 <Link to="/" className="item__element"><img src={logo} alt="walter-logo" /></Link>
                 <Link to="/" className="item__element item__element--active">Requests</Link>
@@ -21,6 +22,7 @@ const Header = () =>{
                 <AiOutlineUser size="20" className="item__element--icon"/>
                 <span className="item__element">Admin Name</span>
                 <RiArrowDropDownLine size="20" className="item__element"/>
+            </div>
             </div>
         </div>
     );
