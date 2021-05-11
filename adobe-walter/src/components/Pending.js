@@ -45,12 +45,12 @@ class Pending extends React.Component{
                 <div>
                     <div className="content">
                         <div className="sort">
-                            <div>
+                            <div className="sort__div1">
                                 <Link to="/" className="sort__item">All</Link>
                                 <Link to="/pending" className=" sort__item content--underline content--active">Pending</Link>
                                 <Link to="/approved" className="sort__item">Approved</Link>
                             </div>
-                            <div>
+                            <div className="sort__div2">
                             <div className="sort__item__dropdown">
                                     <span className="sort__item--right dropbtn"><span className="sort__item--faded">Sort By: </span>Date</span>
                                     <div className="dropdown-content">
@@ -78,12 +78,12 @@ class Pending extends React.Component{
                 <div>
                     <div className="content">
                         <div className="sort">
-                            <div>
+                            <div className="sort__div1">
                                 <Link to="/" className="sort__item">All</Link>
                                 <Link to="/pending" className=" sort__item sort__item content--underline content--active">Pending</Link>
                                 <Link to="/approved" className="sort__item">Approved</Link>
                             </div>
-                            <div>
+                            <div className="sort__div2">
                                 <span className="sort__item--right"><span className="sort__item--faded">Sort By: </span>Date</span>
                                 <span className="sort__item--right"><span className="sort__item--faded" >Sort By: </span>Cost</span>
                                 <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mapPendingInvoices().length}</span>

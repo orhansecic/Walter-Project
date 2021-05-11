@@ -13,9 +13,9 @@ const Header = () =>{
         <div>
             <div className="nav">
             <div className="item item--left">
-                <Link to="/" className="item__element"><img src={logo} alt="walter-logo" /></Link>
-                <Link to="/" className="item__element item__element--active">Requests</Link>
-                <Link to="/" className="item__element">Collaborators</Link>
+                <Link to="/" className="item__element element--logo"><img src={logo} alt="walter-logo" /></Link>
+                <Link to="/" className="item__element item__element--active element--requests">Requests</Link>
+                <Link to="/" className="item__element element--collaborators">Collaborators</Link>
             </div>
             <div className="item item--right">
                 <span className="item__element item__element--bell"><FaRegBell size="20" /></span>
@@ -23,6 +23,14 @@ const Header = () =>{
                 <span className="item__element">Admin Name</span>
                 <RiArrowDropDownLine size="20" className="item__element"/>
             </div>
+            </div>
+
+            <div className="nav-mobile">
+                <Link to="/" className="item__element element--logo"><img src={logo} alt="walter-logo" /></Link>
+                <Link to="/" className="item__element item__element--active element--requests">Requests</Link>
+                <Link to="/" className="item__element element--collaborators">Collaborators</Link>
+                <span className="item__element item__element--bell element--bell"><FaRegBell size="20" /></span>
+                <span className="item__element element--admin">Admin Name</span>
             </div>
         </div>
     );
