@@ -8,8 +8,12 @@ const HeaderMain = () =>{
     const openModal = () =>{
         setIsOpen(true);
     }
-    const closeModal = () =>{
-        setIsOpen(false);
+    const closeModal = (modal, overlay) =>{
+        modal.className = "modal onModalClose";
+        overlay.className = "overlay onOverlayClose";
+        setTimeout(() => {
+            setIsOpen(false)
+        }, 1000)
     }
 
     return(

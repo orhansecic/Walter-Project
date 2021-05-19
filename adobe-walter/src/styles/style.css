@@ -55,7 +55,7 @@
   border-left: solid 1px black;
   border-right: solid 1px black;
   margin: -20px;
-  padding: 20px;
+  padding: 25px;
   margin-right: 20px;
 }
 
@@ -253,20 +253,131 @@
   left: 0;
   bottom: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.7);
   z-index: 1000;
 }
 
+/* ANIMATION OF MODAL AND OVERLAY */
+.onOverlayOpen {
+  -webkit-animation: fadeOverlay 1s;
+          animation: fadeOverlay 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeOverlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@keyframes fadeOverlay {
+  0% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.onOverlayClose {
+  -webkit-animation: fadeOverlayClose 1s;
+          animation: fadeOverlayClose 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeOverlayClose {
+  0% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes fadeOverlayClose {
+  0% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+/* ANIMATION OF MODAL AND OVERLAY */
 .modal {
   position: fixed;
   right: 0;
-  top: 25%;
+  top: 12vh;
   z-index: 1000;
   background-color: white;
   border-radius: 7px 0px 0px 7px;
-  width: 35%;
+  width: 25%;
 }
 
+/* ANIMATION OF MODAL AND OVERLAY */
+.onModalOpen {
+  -webkit-animation: modalTrans 1s;
+          animation: modalTrans 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes modalTrans {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes modalTrans {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+.onModalClose {
+  -webkit-animation: modalTransClose 1s;
+          animation: modalTransClose 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes modalTransClose {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+  }
+}
+
+@keyframes modalTransClose {
+  0% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+  }
+}
+
+/* ANIMATION OF MODAL AND OVERLAY */
 .modalContent {
   display: -ms-grid;
   display: grid;
@@ -669,7 +780,6 @@
     grid-row-end: 4;
   }
   .modal {
-    left: 0;
     width: 100%;
     border-radius: 7px;
   }

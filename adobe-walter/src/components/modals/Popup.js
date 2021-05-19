@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import ReactDOM from 'react-dom';
 
 import {FaRegFilePdf} from 'react-icons/fa';
@@ -8,6 +8,9 @@ const Popup = (props) =>{
     const defaultMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit."
     const date = new Date();
 
+    const overlay = useRef();
+    const modal = useRef();
+
     if(props.isOpen === false){
         return(
             null
@@ -16,11 +19,11 @@ const Popup = (props) =>{
         if(props.invoice.status === "Pending")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay" onClick={props.onClose}/>
-                    <div className="modal">
+                    <div ref={overlay} className="overlay onOverlayOpen" onClick={() => props.onClose(modal.current, overlay.current)}/>
+                    <div ref={modal} className="modal onModalOpen">
                         
                         <div className="modalContent">
-                            <BiX size="20" className="exit" onClick={props.onClose}>X</BiX>
+                            <BiX size="20" className="exit" onClick={() => props.onClose(modal.current, overlay.current)}>X</BiX>
                             {/* TITLE */}
                             <h3>{props.invoice?.invoiceName}</h3>
                             <hr></hr>
@@ -88,10 +91,10 @@ const Popup = (props) =>{
             if(props.invoice.status === "Approved")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay" onClick={props.onClose}/>
-                    <div className="modal">
+                    <div ref={overlay} className="overlay onOverlayOpen" onClick={() => props.onClose(modal.current, overlay.current)}/>
+                    <div ref={modal} className="modal onModalOpen">
                         <div className="modalContent">
-                            <span className="exit" onClick={props.onClose}>X</span>
+                            <span className="exit" onClick={() => props.onClose(modal.current, overlay.current)}>X</span>
                             {/* TITLE */}
                             <h3>{props.invoice?.invoiceName}</h3>
                             <hr></hr>
@@ -156,11 +159,11 @@ const Popup = (props) =>{
             if(props.invoice.status === "Declined")
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay" onClick={props.onClose}/>
-                    <div className="modal">
+                    <div ref={overlay} className="overlay onOverlayOpen" onClick={() => props.onClose(modal.current, overlay.current)}/>
+                    <div ref={modal} className="modal onModalOpen">
                         
                         <div className="modalContent">
-                            <span className="exit" onClick={props.onClose}>X</span>
+                            <span className="exit" onClick={() => props.onClose(modal.current, overlay.current)}>X</span>
                             {/* TITLE */}
                             <h3>{props.invoice?.invoiceName}</h3>
                             <hr></hr>

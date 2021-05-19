@@ -14,7 +14,7 @@ const Header = () =>{
             <div className="nav">
             <div className="item item--left">
                 <Link to="/" className="item__element element--logo"><img src={logo} alt="walter-logo" /></Link>
-                <Link to="/" className="item__element item__element--active element--requests">Requests</Link>
+                <Link to="/" data-testid="Example" className="item__element item__element--active element--requests">Requests</Link>
                 <Link to="/" className="item__element element--collaborators">Collaborators</Link>
             </div>
             <div className="item item--right">

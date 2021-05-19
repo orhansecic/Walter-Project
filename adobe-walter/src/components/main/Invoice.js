@@ -14,9 +14,13 @@ const Invoice = (props) =>{
         setIsOpen(true);
     };
 
-    const onCloseClick = (e) =>{
-        e.stopPropagation();
-        setIsOpen(false);
+    const onCloseClick = (modal, overlay) =>{
+        //e.stopPropagation();
+        modal.className = "modal onModalClose";
+        overlay.className = "overlay onOverlayClose";
+        setTimeout(() => {
+            setIsOpen(false)
+        }, 1000)
     }
 
     if(props.invoice?.status === "Approved"){

@@ -12,6 +12,8 @@ class NewInvoice extends React.Component{
         this.inputPrice = React.createRef();
         this.inputDueDate = React.createRef();
         this.inputComment = React.createRef();
+        this.modal = React.createRef();
+        this.overlay = React.createRef();
     }
     submitInvoice = () =>{
         this.props.newIncvoiceActionCreator({
@@ -23,7 +25,7 @@ class NewInvoice extends React.Component{
             dueDate: this.inputDueDate.current.value,
             comment: this.inputComment.current.value,
         });
-        this.props.closeModal();
+        this.props.closeModal(this.modal.current, this.overlay.current);
     }
 
     render(){
@@ -34,10 +36,10 @@ class NewInvoice extends React.Component{
         }else if(this.props.isOpen === true){
             return ReactDOM.createPortal(
                 <div>
-                    <div className="overlay" onClick={this.props.closeModal}></div>
-                    <div className="modal">
+                    <div ref={this.overlay}className="overlay onOverlayOpen" onClick={() => this.props.closeModal(this.modal.current, this.overlay.current)}></div>
+                    <div ref={this.modal} className="modal onModalOpen">
                         <div className="modalContent">
-                            <span className="exit" onClick={this.props.closeModal}>X</span>
+                            <span className="exit" onClick={() => this.props.closeModal(this.modal.current, this.overlay.current)}>X</span>
                             <h3>New Invoice</h3>
                             <hr></hr>
                             <span className="modalContent__information">Information</span>
