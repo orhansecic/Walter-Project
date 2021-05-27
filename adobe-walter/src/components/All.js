@@ -4,7 +4,14 @@ import { connect } from 'react-redux';
 
 import { invoicesActionCreator, sortInvoices} from '../actions';
 import Invoice from './main/Invoice.js';
- 
+
+/* Sort Helper Function */
+import {CostASC} from './helper/Sort.js';
+import {CostDES} from './helper/Sort.js';
+
+import {DateASC} from './helper/Sort.js';
+import {DateDES} from './helper/Sort.js';
+
 class Invoices extends React.Component{
     
     componentDidMount(){
@@ -17,29 +24,32 @@ class Invoices extends React.Component{
     }
 
     sortByCostASC = () =>{
-        let propInvoices = this.props.invoices.slice();
-        let sortedInvoices = propInvoices.sort((a,b) => a.cost - b.cost);
-        this.props.sortInvoices(sortedInvoices);
+        // let propInvoices = this.props.invoices.slice();
+        // let sortedInvoices = propInvoices.sort((a,b) => a.cost - b.cost);
+        //this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(CostASC(this.props.invoices));
     }
 
     sortByCostDES = () =>{
-        let propInvoices = this.props.invoices.slice();
-        let sortedInvoices = propInvoices.sort((a,b) => b.cost - a.cost);
-        this.props.sortInvoices(sortedInvoices);
+        // let propInvoices = this.props.invoices.slice();
+        // let sortedInvoices = propInvoices.sort((a,b) => b.cost - a.cost);
+        // this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(CostDES(this.props.invoices))
      }
 
     sortByDateASC = () =>{
-        const propInvoices = this.props.invoices.slice();
-        const sortedInvoices = propInvoices.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
-        this.props.sortInvoices(sortedInvoices);
+        // const propInvoices = this.props.invoices.slice();
+        // const sortedInvoices = propInvoices.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
+        // this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(DateASC(this.props.invoices));
     }
 
     sortByDateDES = () =>{
-        const propInvoices = this.props.invoices.slice();
-        const sortedInvoices = propInvoices.sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
-        this.props.sortInvoices(sortedInvoices);
+        // const propInvoices = this.props.invoices.slice();
+        // const sortedInvoices = propInvoices.sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
+        // this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(DateDES(this.props.invoices));
     }
-
     render(){
         if(this.props.pending === false){
             return(

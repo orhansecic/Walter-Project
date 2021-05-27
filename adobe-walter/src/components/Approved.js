@@ -5,6 +5,13 @@ import { connect } from 'react-redux';
 import { approvedActionCreator, sortInvoices } from '../actions';
 import Invoice from './main/Invoice.js';
 
+/* Sort Helper Function */
+import {CostASC} from './helper/Sort.js';
+import {CostDES} from './helper/Sort.js';
+
+import {DateASC} from './helper/Sort.js';
+import {DateDES} from './helper/Sort.js';
+
 
 class Invoices extends React.Component{
     
@@ -18,28 +25,20 @@ class Invoices extends React.Component{
     }
 
     sortByCostASC = () =>{
-        const sortedInvoices = this.props.approvedInvoices.sort((a, b) => a.cost - b.cost);
-        this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(CostASC(this.props.approvedInvoices));
+    }
+
+    sortByCostDES = () =>{
+        this.props.sortInvoices(CostDES(this.props.approvedInvoices))
      }
- 
-     sortByCostDES = () =>{
-         const sortedInvoices = this.props.approvedInvoices.sort((a, b) => b.cost - a.cost);
-         this.props.sortInvoices(sortedInvoices);
-      }
- 
- 
-      sortByDateASC = () =>{
-        console.log("clicked");
-        const sortedInvoices = this.props.approvedInvoices.sort((a,b) => Date.parse(a.date) - Date.parse(b.date));
-        this.props.sortInvoices(sortedInvoices);
+
+    sortByDateASC = () =>{
+        this.props.sortInvoices(DateASC(this.props.approvedInvoices));
     }
 
     sortByDateDES = () =>{
-        console.log("clicked");
-        const sortedInvoices = this.props.approvedInvoices.sort((a,b) => Date.parse(b.date) - Date.parse(a.date));
-        this.props.sortInvoices(sortedInvoices);
+        this.props.sortInvoices(DateDES(this.props.approvedInvoices));
     }
-
      render(){
         if(this.props.pending === false){
             return(
