@@ -18,7 +18,10 @@ class Invoices extends React.Component{
         this.props.invoicesActionCreator();
     }
     mappedInvoices = () =>{
-        return this.props.invoices.map((invoice) => {
+        if(!this.props.invoices){
+            return null
+        }
+        return this.props.invoices?.map((invoice) => {
             return <Invoice key={invoice.id} invoice={invoice}/>
         })
     }
@@ -76,7 +79,7 @@ class Invoices extends React.Component{
                                         <span onClick={this.sortByCostDES}>Descending</span>
                                     </div>
                                 </div>
-                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mappedInvoices().length}</span>
+                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {/*this.mappedInvoices().length*/}</span>
                             </div>
                             
                         </div>
@@ -97,7 +100,7 @@ class Invoices extends React.Component{
                             <div className="sort__div2">
                                 <span className="sort__item--right"><span className="sort__item--faded">Sort By: </span>Date</span>
                                 <span className="sort__item--right"><span className="sort__item--faded" >Sort By: </span>Cost</span>
-                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {this.mappedInvoices().length}</span>
+                                <span className="sort__item--right"><span className="sort__item--faded">Showing </span> {/*this.mappedInvoices().length*/}</span>
                             </div>
                             
                         </div>

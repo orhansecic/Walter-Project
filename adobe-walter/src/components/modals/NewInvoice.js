@@ -17,6 +17,7 @@ class NewInvoice extends React.Component{
     }
     submitInvoice = () =>{
         this.props.newIncvoiceActionCreator({
+            id: this.props.invoices.length + 1,
             invoiceName: "New Invoice.pdf",
             date: this.inputDate.current.value,
             issuedBy: "Orhan Šečić",
@@ -24,6 +25,7 @@ class NewInvoice extends React.Component{
             status: "Pending",
             dueDate: this.inputDueDate.current.value,
             comment: this.inputComment.current.value,
+
         });
         this.props.closeModal(this.modal.current, this.overlay.current);
     }
@@ -79,6 +81,15 @@ class NewInvoice extends React.Component{
     };
 };
 
-export default connect (null, {
-    newIncvoiceActionCreator: newIncvoiceActionCreator,
-}) (NewInvoice);
+const mapStateToProps = (state) => {
+    return {
+        invoices: state.invoices,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        newIncvoiceActionCreator: (newInvoice) => {dispatch(newIncvoiceActionCreator(newInvoice))}
+    }
+}
+export default connect (mapStateToProps, mapDispatchToProps) (NewInvoice);
